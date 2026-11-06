@@ -2,8 +2,8 @@ import { Injectable, NestMiddleware } from '@nestjs/common';
 import { raw } from 'express';
 import { hasBody } from 'type-is';
 
-// Excalidraw Front end doesn't send a Content Type Header
-// so we tell raw parser to check if there is a body
+// WhiteboardRT and compatible clients do not always send a Content-Type
+// header, so tell the raw parser to check whether a body is present instead.
 const rawParserMiddleware = raw({
   type: hasBody,
   limit: process.env.BODY_LIMIT ?? '50mb',

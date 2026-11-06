@@ -1,10 +1,21 @@
 {
-  "name": "excalidraw-storage-backend",
+  "name": "whiteboardrt-storage-backend",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "Self-hosted HTTP storage backend for WhiteboardRT scenes, rooms, and files",
+  "author": "WhiteboardRT contributors",
   "private": true,
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/homeserverhq/whiteboardrt-storage-backend.git"
+  },
+  "homepage": "https://github.com/homeserverhq/whiteboardrt-storage-backend#readme",
+  "bugs": {
+    "url": "https://github.com/homeserverhq/whiteboardrt-storage-backend/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
@@ -15,6 +26,7 @@
     "start:prod": "node dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "lint:check": "eslint \"{src,apps,libs,test}/**/*.ts\"",
+    "brand:check": "node scripts/check-branding.mjs",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",

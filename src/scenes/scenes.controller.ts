@@ -35,7 +35,8 @@ export class ScenesController {
 
   @Post()
   async create(@Body() payload: Buffer) {
-    // Excalidraw front-end only support numeric id, we can't use nanoid default alphabet
+    // WhiteboardRT and compatible clients expect numeric ids, so the default
+    // nanoid alphabet cannot be used here.
     const nanoid = customAlphabet('0123456789', 16);
     const id = nanoid();
 

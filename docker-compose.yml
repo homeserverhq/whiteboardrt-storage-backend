@@ -1,34 +1,23 @@
-version: "3.8"
-
 services:
-  excalidraw: 
-    image: kiliandeca/excalidraw
-    healthcheck:
-      disable: true
-    ports:
-      - "80:80"
-    environment:
-      BACKEND_V2_GET_URL: http://localhost:8080/api/v2/scenes/
-      BACKEND_V2_POST_URL: http://localhost:8080/api/v2/scenes/
-      LIBRARY_URL: https://libraries.excalidraw.com
-      LIBRARY_BACKEND: https://us-central1-excalidraw-room-persistence.cloudfunctions.net/libraries
-      SOCKET_SERVER_URL: http://localhost:5000/
-      STORAGE_BACKEND: "http"
-      HTTP_STORAGE_BACKEND_URL: "http://localhost:8080/api/v2"
-
-  excalidraw-storage-backend:
+  whiteboardrt-storage-backend:
     build: .
+    image: whiteboardrt-storage-backend:latest
+    container_name: whiteboardrt-storage-backend
     ports:
       - "8080:8080"
     environment:
       STORAGE_URI: redis://redis:6379
+      LOG_LEVEL: warn
+    depends_on:
+      - redis
+    restart: unless-stopped
 
-  excalidraw-room:
-    image: excalidraw/excalidraw-room
-    ports:
-      - "5000:80"
-  
   redis:
-    image: redis
-    ports:
-      - "6379:6379"
+    image: redis:7-alpine
+    container_name: whiteboardrt-storage-redis
+    restart: unless-stopped
+    volumes:
+      - redis-data:/data
+
+volumes:
+  redis-data:

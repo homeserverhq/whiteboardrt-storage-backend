@@ -28,6 +28,11 @@ RUN npm prune --omit=dev
 
 FROM node:20-alpine
 
+LABEL org.opencontainers.image.title="WhiteboardRT Storage Backend"
+LABEL org.opencontainers.image.description="Self-hosted HTTP storage backend for WhiteboardRT scenes, rooms, and files"
+LABEL org.opencontainers.image.source="https://github.com/homeserverhq/whiteboardrt-storage-backend"
+LABEL org.opencontainers.image.licenses="MIT"
+
 WORKDIR /app
 
 COPY --from=builder /app/package.json /app/package.json

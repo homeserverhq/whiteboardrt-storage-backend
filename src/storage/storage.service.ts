@@ -11,7 +11,7 @@ export class StorageService {
     const uri = process.env[`STORAGE_URI`];
     if (!uri) {
       this.logger.warn(
-        `STORAGE_URI is undefined, will use non persistant in memory storage`,
+        `STORAGE_URI is undefined, will use non-persistent in-memory storage`,
       );
     }
 
