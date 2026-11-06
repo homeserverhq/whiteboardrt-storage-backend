@@ -37,9 +37,12 @@ jobs:
         with:
           images: ghcr.io/${{ github.repository }}
           tags: |
-            type=ref,event=tag
-            type=match,pattern=^v(\d+\.\d+),group=1,prefix=v,priority=550
-            type=match,pattern=^v(\d+),group=1,prefix=v,priority=500
+            type=ref,event=tag,priority=900
+            type=match,pattern=^v(\d+\.\d+\.\d+\.\d+\.\d+),group=1,prefix=v,priority=850
+            type=match,pattern=^v(\d+\.\d+\.\d+\.\d+),group=1,prefix=v,priority=840
+            type=match,pattern=^v(\d+\.\d+\.\d+),group=1,prefix=v,priority=830
+            type=match,pattern=^v(\d+\.\d+),group=1,prefix=v,priority=820
+            type=match,pattern=^v(\d+),group=1,prefix=v,priority=810
           labels: |
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
 
