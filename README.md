@@ -8,8 +8,6 @@ It stores shared scenes, live-collaboration rooms, and embedded images in a [Key
 
 This repository is a modified fork of [kiliandeca/excalidraw-storage-backend](https://gitlab.com/kiliandeca/excalidraw-storage-backend), originally created by Kilian Decaderincourt. The upstream project is hosted on **GitLab**, not GitHub. The git history also includes Docker and CI work from the [alswl/excalidraw-storage-backend](https://github.com/alswl/excalidraw-storage-backend) GitHub fork, and the original API design follows [excalidraw-json](https://github.com/excalidraw/excalidraw-json).
 
-WhiteboardRT Storage Backend is maintained as an independent repository on GitHub. It is **not a GitHub fork**, so GitHub does not show a fork relationship with the upstream GitLab project. Upstream git history is preserved for provenance.
-
 WhiteboardRT Storage Backend is **not affiliated with or endorsed by Excalidraw**.
 
 ## What it does
